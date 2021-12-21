@@ -17,8 +17,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import javax.sql.DataSource;
+
 @Configuration
 public class ProjectConfig extends WebSecurityConfigurerAdapter {
+
 
     @Autowired
     private UsernamePasswordAuthProvider authProvider;
