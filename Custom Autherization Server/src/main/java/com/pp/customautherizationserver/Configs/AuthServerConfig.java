@@ -34,8 +34,12 @@ public class AuthServerConfig
                 .secret("secret1")
                 .scopes("read")
                 .accessTokenValiditySeconds(5000) // seconds
-                .authorizedGrantTypes("authorization_code", "refresh_token")
-                .redirectUris("http://localhost:8080/home");
+                .authorizedGrantTypes("password", "refresh_token")
+                //.redirectUris("http://localhost:8080/home")
+                //Adding resource Server credebtials
+                .and()
+                .withClient("resourceserver")
+                .secret("resourceserversecret");
 
     }
 
@@ -43,4 +47,6 @@ public class AuthServerConfig
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager);
     }
+
+
 }
